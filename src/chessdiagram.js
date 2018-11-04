@@ -46,7 +46,7 @@ class Chessdiagram extends Component {
 			: props.pgn ? props.getFensFromPgn(props.pgn) : [''];
 
 		// If there is a PGN, set currentMove to this.startMove, otherwise zero.
-		const currentMove = props.pgn ? this.startMove : 0;
+		const currentMove = props.pgn ? this.startMove === 'last'? moves.length - 1 : this.startMove : 0;
 		this.state = {
 			currentMove,
 			moves
@@ -79,9 +79,6 @@ class Chessdiagram extends Component {
 
 	// returns halfmove count of the prop startMove ////
 	get startMove() {
-		if (this.props.startMove === 'last') {
-		  return this.state.moves.length - 1;
-    }
     let currentMove;
 		if (typeof this.props.startMove === 'number' || parseInt(this.props.startMove)) {
 			// halfMove provided
