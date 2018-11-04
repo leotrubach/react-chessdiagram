@@ -79,7 +79,10 @@ class Chessdiagram extends Component {
 
 	// returns halfmove count of the prop startMove ////
 	get startMove() {
-		let currentMove;
+		if (this.props.startMove === 'last') {
+		  return this.state.moves.length - 1;
+    }
+    let currentMove;
 		if (typeof this.props.startMove === 'number' || parseInt(this.props.startMove)) {
 			// halfMove provided
 			currentMove = parseInt(this.props.startMove);
