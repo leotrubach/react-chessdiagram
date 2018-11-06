@@ -60,7 +60,7 @@ class Chessdiagram extends Component {
 		}
 		if (nextProps.pgn && nextProps.pgn !== this.props.pgn) {
 		  const moves = nextProps.getFensFromPgn(nextProps.pgn);
-			this.setState({currentMove: this.props.startMove === 'last'?moves.length - 1:this.startMove, moves: moves});
+			this.setState({currentMove: nextProps.startMove === 'last'?moves.length - 1:nextProps.startMove, moves: moves});
 		}
 	}
 
